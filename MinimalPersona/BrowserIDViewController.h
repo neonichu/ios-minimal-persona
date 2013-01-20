@@ -4,27 +4,25 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^BrowserIDCookieHandler)(NSArray* cookies, NSError* error);
+
 @class BrowserIDViewController;
 
 @protocol BrowserIDViewControllerDelegate <NSObject>
 
-- (void) browserIDViewController: (BrowserIDViewController*) browserIDViewController didFailWithReason: (NSString*) reason;
-- (void) browserIDViewController: (BrowserIDViewController*) browserIDViewController didSucceedWithAssertion: (NSString*) assertion;
-- (void) browserIDViewControllerDidCancel: (BrowserIDViewController*) browserIDViewController;
+- (void)browserIDViewController:(BrowserIDViewController*)browserIDViewController didFailWithReason:(NSString*)reason;
+- (void)browserIDViewController:(BrowserIDViewController*)browserIDViewController didSucceedWithAssertion:(NSString*)assertion;
+- (void)browserIDViewControllerDidCancel:(BrowserIDViewController*)browserIDViewController;
 
 @end
 
-@interface BrowserIDViewController : UIViewController <UIWebViewDelegate> {
-  @private
-	UIWebView* _webView;
-  @private
-    id<BrowserIDViewControllerDelegate> _delegate;
-	NSString* _origin;
-}
+#pragma mark -
 
-@property (nonatomic,assign) IBOutlet UIWebView* webView;
+@interface BrowserIDViewController : UIViewController
 
-@property (nonatomic,assign) id<BrowserIDViewControllerDelegate> delegate;
-@property (nonatomic,retain) NSString* origin;
+@property (strong) NSString* callbackPath;
+@property (copy) BrowserIDCookieHandler cookieHandler;
+@property (strong) NSString* loginPath;
+@property (strong) NSString* origin;
 
 @end

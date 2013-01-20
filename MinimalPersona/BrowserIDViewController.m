@@ -73,7 +73,11 @@ static NSString* const kBrowserIDSignInURL = @"https://login.persona.org/sign_in
 }
 
 - (void)browserIDViewControllerDidCancel:(BrowserIDViewController *)browserIDViewController {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 6000
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+#else
     [self.presentingViewController dismissModalViewControllerAnimated:YES];
+#endif
 }
 
 #pragma mark - UIWebView delegate methods

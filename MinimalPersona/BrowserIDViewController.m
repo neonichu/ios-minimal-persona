@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#import "AFNetworkActivityIndicatorManager.h"
 #import "BrowserIDClient.h"
 #import "BrowserIDViewController.h"
 #import "RPSTPasswordManagementAppService.h"
@@ -142,7 +143,19 @@ static NSString* const kBrowserIDSignInURL = @"https://login.persona.org/sign_in
 	return YES;
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+    [self.webView loadHTMLString:error.localizedDescription baseURL:nil];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+    
 	// Insert the code that will setup and handle the BrowserID callback.
 
 	NSString* injectedCodePath = [[NSBundle mainBundle] pathForResource:@"BrowserIDViewController" ofType:@"js"];

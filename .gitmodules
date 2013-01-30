@@ -1,3 +1,6 @@
 [submodule "vendor/AFNetworking"]
 	path = vendor/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "vendor/RPSTPasswordManagementAppService"]
+	path = vendor/RPSTPasswordManagementAppService
+	url = https://github.com/Riposte/RPSTPasswordManagementAppService.git

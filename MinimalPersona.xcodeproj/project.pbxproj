@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		868A4DD016B9D38D00A5F971 /* RPSTPasswordManagementAppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 868A4DCF16B9D38D00A5F971 /* RPSTPasswordManagementAppService.m */; };
+		868A4DD316B9D68500A5F971 /* onePassword_v4.png in Resources */ = {isa = PBXBuildFile; fileRef = 868A4DD116B9D68500A5F971 /* onePassword_v4.png */; };
+		868A4DD416B9D68500A5F971 /* onePassword_v4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 868A4DD216B9D68500A5F971 /* onePassword_v4@2x.png */; };
+		868A4DD716B9D72A00A5F971 /* onePassword_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = 868A4DD516B9D72A00A5F971 /* onePassword_v3.png */; };
+		868A4DD816B9D72A00A5F971 /* onePassword_v3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 868A4DD616B9D72A00A5F971 /* onePassword_v3@2x.png */; };
 		86E759BB16AB1BE900F0257F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E759BA16AB1BE900F0257F /* Default-568h@2x.png */; };
 		86E759D116AB205700F0257F /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E759BF16AB205700F0257F /* AFHTTPClient.m */; };
 		86E759D216AB205700F0257F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E759C116AB205700F0257F /* AFHTTPRequestOperation.m */; };
@@ -31,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		868A4DCE16B9D38D00A5F971 /* RPSTPasswordManagementAppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPSTPasswordManagementAppService.h; path = vendor/RPSTPasswordManagementAppService/RPSTPasswordManagementAppService.h; sourceTree = "<group>"; };
+		868A4DCF16B9D38D00A5F971 /* RPSTPasswordManagementAppService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPSTPasswordManagementAppService.m; path = vendor/RPSTPasswordManagementAppService/RPSTPasswordManagementAppService.m; sourceTree = "<group>"; };
+		868A4DD116B9D68500A5F971 /* onePassword_v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onePassword_v4.png; path = vendor/RPSTPasswordManagementAppService/images/onePassword_v4.png; sourceTree = SOURCE_ROOT; };
+		868A4DD216B9D68500A5F971 /* onePassword_v4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "onePassword_v4@2x.png"; path = "vendor/RPSTPasswordManagementAppService/images/onePassword_v4@2x.png"; sourceTree = SOURCE_ROOT; };
+		868A4DD516B9D72A00A5F971 /* onePassword_v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onePassword_v3.png; path = vendor/RPSTPasswordManagementAppService/images/onePassword_v3.png; sourceTree = SOURCE_ROOT; };
+		868A4DD616B9D72A00A5F971 /* onePassword_v3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "onePassword_v3@2x.png"; path = "vendor/RPSTPasswordManagementAppService/images/onePassword_v3@2x.png"; sourceTree = SOURCE_ROOT; };
 		86E759BA16AB1BE900F0257F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		86E759BE16AB205700F0257F /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = vendor/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		86E759BF16AB205700F0257F /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = vendor/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
@@ -87,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		868A4DCD16B9CEC000A5F971 /* RPSTPasswordManagementAppService */ = {
+			isa = PBXGroup;
+			children = (
+				868A4DCE16B9D38D00A5F971 /* RPSTPasswordManagementAppService.h */,
+				868A4DCF16B9D38D00A5F971 /* RPSTPasswordManagementAppService.m */,
+			);
+			name = RPSTPasswordManagementAppService;
+			sourceTree = "<group>";
+		};
 		86E759B916AB18B700F0257F /* Persona */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				86E759BD16AB204200F0257F /* AFNetworking */,
+				868A4DCD16B9CEC000A5F971 /* RPSTPasswordManagementAppService */,
 			);
 			name = "Third Party";
 			sourceTree = "<group>";
@@ -183,6 +204,10 @@
 				F8A2BAC515CC4FA000CAA854 /* main.m */,
 				F8A2BAC115CC4FA000CAA854 /* MinimalPersona-Info.plist */,
 				F8A2BAC715CC4FA000CAA854 /* MinimalPersona-Prefix.pch */,
+				868A4DD516B9D72A00A5F971 /* onePassword_v3.png */,
+				868A4DD616B9D72A00A5F971 /* onePassword_v3@2x.png */,
+				868A4DD116B9D68500A5F971 /* onePassword_v4.png */,
+				868A4DD216B9D68500A5F971 /* onePassword_v4@2x.png */,
 			);
 			name = "Supporting Files";
 			path = MinimalPersona;
@@ -240,6 +265,10 @@
 			files = (
 				F8A2BAE415CC51F700CAA854 /* BrowserIDViewController.js in Resources */,
 				86E759BB16AB1BE900F0257F /* Default-568h@2x.png in Resources */,
+				868A4DD316B9D68500A5F971 /* onePassword_v4.png in Resources */,
+				868A4DD416B9D68500A5F971 /* onePassword_v4@2x.png in Resources */,
+				868A4DD716B9D72A00A5F971 /* onePassword_v3.png in Resources */,
+				868A4DD816B9D72A00A5F971 /* onePassword_v3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +292,7 @@
 				86E759D816AB205700F0257F /* AFXMLRequestOperation.m in Sources */,
 				86E759D916AB205700F0257F /* UIImageView+AFNetworking.m in Sources */,
 				86E75A0216AB65DD00F0257F /* BrowserIDClient.m in Sources */,
+				868A4DD016B9D38D00A5F971 /* RPSTPasswordManagementAppService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

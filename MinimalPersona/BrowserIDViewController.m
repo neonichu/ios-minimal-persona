@@ -4,6 +4,7 @@
 
 #import "BrowserIDClient.h"
 #import "BrowserIDViewController.h"
+#import "RPSTPasswordManagementAppService.h"
 
 static NSString* const kBrowserIDSignInURL = @"https://login.persona.org/sign_in#NATIVE";
 
@@ -31,6 +32,36 @@ static NSString* const kBrowserIDSignInURL = @"https://login.persona.org/sign_in
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Mozilla Persona", @"Mozilla Persona");
+    
+    if ([RPSTPasswordManagementAppService passwordManagementAppIsAvailable]) {
+        NSString* displayName = [RPSTPasswordManagementAppService availablePasswordManagementAppDisplayName];
+        UIImage* displayImage = nil;
+        
+        switch ([RPSTPasswordManagementAppService availablePasswordManagementApp]) {
+            case RPSTPasswordManagementAppType1Password_v3:
+                displayImage = [UIImage imageNamed:@"onePassword_v3"];
+                break;
+            case RPSTPasswordManagementAppType1Password_v4:
+                displayImage = [UIImage imageNamed:@"onePassword_v4"];
+                break;
+            default:
+                break;
+        }
+        
+        if (displayImage) {
+            UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.accessibilityLabel = displayName;
+            button.frame = CGRectMake(0.0, 0.0, displayImage.size.width, displayImage.size.height);
+            [button addTarget:self action:@selector(openPasswordApp) forControlEvents:UIControlEventTouchUpInside];
+            [button setImage:displayImage forState:UIControlStateNormal];
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        } else {
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:displayName
+                                                                                     style:UIBarButtonItemStylePlain
+                                                                                    target:self
+                                                                                    action:@selector(openPasswordApp)];
+        }
+    }
         
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:NSLocalizedString(@"Cancel", @"Mozilla Persona")
@@ -53,6 +84,11 @@ static NSString* const kBrowserIDSignInURL = @"https://login.persona.org/sign_in
 - (void)cancel {
     [self.webView stopLoading];
     [self.delegate browserIDViewControllerDidCancel:self];
+}
+
+- (void)openPasswordApp {
+    NSURL* url = [RPSTPasswordManagementAppService passwordManagementAppCompleteURLForSearchQuery:@"persona.org"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - BrowserIDViewController delegate methods
